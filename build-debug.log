@@ -1,0 +1,183 @@
+mkdir -p "build/mx5000tools"
+cd "third_party/mx5000tools" && autoreconf -fi
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+configure.ac:6: warning: 'AM_CONFIG_HEADER': this macro is obsolete.
+configure.ac:6: You should use the 'AC_CONFIG_HEADERS' macro instead.
+./lib/autoconf/general.m4:2434: AC_DIAGNOSE is expanded from...
+aclocal.m4:9833: AM_CONFIG_HEADER is expanded from...
+configure.ac:6: the top level
+configure.ac:9: warning: The macro `AC_HEADER_STDC' is obsolete.
+configure.ac:9: You should run autoupdate.
+./lib/autoconf/headers.m4:704: AC_HEADER_STDC is expanded from...
+configure.ac:9: the top level
+configure.ac:19: warning: AC_OUTPUT should be used without arguments.
+configure.ac:19: You should run autoupdate.
+configure.ac:8: installing './compile'
+configure.ac:5: installing './missing'
+libmx5000/Makefile.am: installing './depcomp'
+cd "build/mx5000tools" && \
+	"/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/third_party/mx5000tools/configure" \
+	--prefix="/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install" --disable-static
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to enable C11 features... none needed
+checking whether gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of gcc... gcc3
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for file... file
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for linux/hiddev.h... yes
+checking for netpbm/pbm.h... yes
+checking for pbm_readpbm in -lnetpbm... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libmx5000/Makefile
+config.status: creating mx5000-tool/Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+make -C "build/mx5000tools"
+make[1]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+make  all-recursive
+make[2]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+Making all in libmx5000
+make[3]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/libmx5000'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/libmx5000'
+Making all in mx5000-tool
+make[3]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/mx5000-tool'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/mx5000-tool'
+make[3]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+make[3]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+make[2]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+make[1]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+make -C "build/mx5000tools" install
+make[1]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+Making install in libmx5000
+make[2]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/libmx5000'
+make[3]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/libmx5000'
+ /usr/bin/mkdir -p '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/lib'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c   libmx5000.la '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/lib'
+libtool: install: /usr/bin/install -c .libs/libmx5000.so.0.0.0 /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/lib/libmx5000.so.0.0.0
+libtool: install: (cd /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/lib && { ln -s -f libmx5000.so.0.0.0 libmx5000.so.0 || { rm -f libmx5000.so.0 && ln -s libmx5000.so.0.0.0 libmx5000.so.0; }; })
+libtool: install: (cd /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/lib && { ln -s -f libmx5000.so.0.0.0 libmx5000.so || { rm -f libmx5000.so && ln -s libmx5000.so.0.0.0 libmx5000.so; }; })
+libtool: install: /usr/bin/install -c .libs/libmx5000.lai /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/lib/libmx5000.la
+libtool: finish: PATH="/home/stanislav/.local/bin:/home/stanislav/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/sbin" ldconfig -n /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /usr/bin/mkdir -p '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/include/libmx5000'
+ /usr/bin/install -c -m 644 /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/third_party/mx5000tools/libmx5000/mx5000.h /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/third_party/mx5000tools/libmx5000/mx5000screencontent.h /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/third_party/mx5000tools/libmx5000/mx5000image.h '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/include/libmx5000'
+make[3]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/libmx5000'
+make[2]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/libmx5000'
+Making install in mx5000-tool
+make[2]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/mx5000-tool'
+make[3]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/mx5000-tool'
+ /usr/bin/mkdir -p '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/install -c mx5000-tool '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/bin'
+libtool: install: /usr/bin/install -c .libs/mx5000-tool /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/bin/mx5000-tool
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/mx5000-tool'
+make[2]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/mx5000-tool'
+make[2]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+make[3]: Entering directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+make[2]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+make[1]: Leaving directory '/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools'
+mkdir -p "build"
+cc -O2 -Wall -Wextra -Wpedantic -std=c11 -o "build/mx5000-monitor" "src/mx5000-monitor.c"
+Monitor: build/mx5000-monitor
+LCD tool: /home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/bin/mx5000-tool
+Local build checks passed.
+To test manually without changing the installed monitor:
+  "build/mx5000-monitor" -t "/home/stanislav/Documents/LogiMX5000/mx5000-linux-monitor/build/mx5000tools/install/bin/mx5000-tool"

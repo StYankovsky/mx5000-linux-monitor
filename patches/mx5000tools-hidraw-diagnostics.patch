@@ -1,0 +1,27 @@
+--- a/libmx5000/hidraw_lib.c
++++ b/libmx5000/hidraw_lib.c
+@@ -103,7 +103,15 @@
+ 	 * If the device was opened by name, we try to re-acquire the device
+ 	 * here to deal with these kinda temporary device losses.
+ 	 */
+-	if (result == -1 && errno == ENODEV) {
++    if (result < 0) {
++    perror("MX5000 HID write");
++    } else {
++    fprintf(stderr,
++            "MX5000 HID write: report=0x%02x, bytes=%d/%d\n",
++            data[0], result, count);
++    }	
++
++/*    if (result == -1 && errno == ENODEV) {
+ 		int new_fd = lib_hidraw_find_device(ids);
+ 		if (new_fd != -1) {
+ 			fprintf(stderr, "Successfully re-opened mx5000 hidraw device\n");
+@@ -112,6 +120,6 @@
+ 			result = write(fd, data, count);
+ 		}
+ 	}
+-
++*/
+ 	return result;
+ }

@@ -1,0 +1,19 @@
+CC ?= cc
+CFLAGS ?= -O2 -Wall -Wextra -Wpedantic -std=c11
+PREFIX ?= /usr/local
+BINDIR ?= $(PREFIX)/bin
+
+.PHONY: all clean install uninstall
+all: mx5000-monitor
+
+mx5000-monitor: src/mx5000-monitor.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+install: mx5000-monitor
+	install -Dm755 mx5000-monitor $(DESTDIR)$(BINDIR)/mx5000-monitor
+
+uninstall:
+	rm -f $(DESTDIR)$(BINDIR)/mx5000-monitor
+
+clean:
+	rm -f mx5000-monitor

@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+set -u
+
+APP="/usr/local/bin/mx5000-monitor"
+STATE_DIR="$HOME/.local/state/mx5000-monitor"
+PIDFILE="$STATE_DIR/monitor.pid"
+LOGFILE="$STATE_DIR/monitor.log"
+
+mkdir -p "$STATE_DIR"
+
+get_pid() {
+    if [[ -f "$PIDFILE" ]]; then
+        local pid
+        pid=$(cat "$PIDFILE")
+        if [[ "$pid" =~ ^[0-9]+$ ]] && kill -0 "$pid" 2>/dev/null; then
+            echo "$pid"
+            return 0
+        fi
+        rm -f "$PIDFILE"
+    fi
+    return 1
+}
+
+case "${1:-status}" in
+    start)
+        if pid=$(get_pid); then
+            echo "mx5000-monitor уже запущен (PID $pid)."
+            exit 0
+        fi
+
+        if [[ ! -x "$APP" ]]; then
+            echo "Не найден исполняемый файл: $APP"
+            exit 1
+        fi
+
+        nohup "$APP" >> "$LOGFILE" 2>&1 </dev/null &
+        pid=$!
+        echo "$pid" > "$PIDFILE"
+        sleep 1
+
+        if kill -0 "$pid" 2>/dev/null; then
+            echo "mx5000-monitor запущен (PID $pid)."
+        else
+            rm -f "$PIDFILE"
+            echo "Программа завершилась при запуске:"
+            tail -n 20 "$LOGFILE" 2>/dev/null || true
+            exit 1
+        fi
+        ;;
+    stop)
+        if pid=$(get_pid); then
+            kill "$pid" 2>/dev/null || true
+            for _ in {1..30}; do
+                kill -0 "$pid" 2>/dev/null || break
+                sleep 0.1
+            done
+
+            if kill -0 "$pid" 2>/dev/null; then
+                echo "Процесс ещё работает; SIGTERM отправлен."
+            else
+                rm -f "$PIDFILE"
+                echo "mx5000-monitor остановлен."
+            fi
+        else
+            echo "mx5000-monitor не запущен."
+        fi
+        ;;
+    restart)
+        "$0" stop
+        sleep 1
+        "$0" start
+        ;;
+    status)
+        if pid=$(get_pid); then
+            ps -p "$pid" -o pid,etime,%cpu,%mem,rss,cmd
+        else
+            echo "mx5000-monitor не запущен."
+            exit 1
+        fi
+        ;;
+    logs)
+        tail -n 50 "$LOGFILE"
+        ;;
+    *)
+        echo "Использование: $0 {start|stop|restart|status|logs}"
+        exit 2
+        ;;
+esac

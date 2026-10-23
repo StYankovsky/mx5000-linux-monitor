@@ -1,0 +1,64 @@
+mx5000tools
+===========
+
+mx5000tools are tools to control the extra features on the Logitech MX
+5000 bluetooth cordless keyboard. 
+
+For the tools to work, you need to have the support for HIDRAW
+compiled into your kernel. It currently only works on Linux, but it is
+probably relatively easy to port it to other operating systems, by
+rewriting the mx5000_open* and mx5000_send_reports functions.
+
+mx5000tools includes 2 main components:
+
+- libmx5000
+  
+  This library contains all of the code that directly interacts with
+  the keyboard. Other applications can be implemented while using
+  it. The only dependency it has is a working libc, the Linux kernel
+  and the netpbm library.
+
+- mx5000-tool
+
+  This simple command-line tool allows users to control what is
+  displayed on the LCD. It only depends on libmx5000.
+
+
+
+This library was based on the work of E. Heidstra <boesj27@gmail.com>
+on mx5000lib (http://sourceforge.net/projects/mx5000lib/)
+
+
+
+
+TODO:
+ - Display notification from the galago framework on the LCD?
+ - Display the volume, maybe using the same gstreamer stuff used by
+ the Gnome mixer applet.
+
+
+
+
+Reverse-engineering left to do:
+ - Understand how to control the content of the menus
+ - Get information from Logitech about any other feature not exposed
+ by SetPoint
+  
+
+
+EXAMPLES
+
+To display "Tester" in the middle:
+$ mx5000-tool --static --add-text Tester reg 30 25
+
+To display "Tester" in huge on the whole screen:
+$ mx5000-tool --static --add-text Tester huge 13 35
+
+To display a long text on one line roughly in the middle with a
+progress bar at 50% underneath:
+$ mx5000tools/mx5000-tool/mx5000-tool --rolling "This is a really really long text that does not fit on one line" 100 0 20 --add-progressbar 20 10 reg 0 35
+
+To display updateable text:
+$ mx5000-tool --static --add-text "Tester     " reg 20 25 --ref
+0
+$ mx5000-tool --update 0 mx5000tools
